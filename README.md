@@ -41,11 +41,22 @@ cwd = "/absolute/path/to/search_scholar"
 - 如果 `node` 不在 Codex 启动环境的 `PATH` 里，把 `command = "node"` 改成 `which node` 查到的绝对路径。
 - 这个仓库不再提供自动修改或备份 `~/.codex/config.toml` 的脚本。
 
-可选地，你也可以先打印一份当前机器可直接粘贴的配置片段，再手动复制：
+**推荐**：你可以先打印一份当前机器可直接粘贴的配置片段，再手动复制，就不用粘贴上面的配置了：
 
 ```bash
 npm run print:codex-config
 ```
+
+环境变量通过 `env_vars` 透传给 MCP：
+
+- `OPENALEX_API_KEY`
+- `OPENALEX_EMAIL`
+- `OPENALEX_BASE_URL`
+- `OPENALEX_TIMEOUT_MS`
+- `OPENALEX_MAX_RETRIES`
+
+`OPENALEX_API_KEY` 强烈建议设置；`openalex_rate_limit_status` 则必须要它。因为这里使用的是 `env_vars`，你需要在启动 Codex 的同一个 shell 里先 `export` 它们。
+
 
 ## Remove
 
@@ -67,15 +78,7 @@ cwd = "/absolute/path/to/search_scholar"
 
 删除后重新打开 Codex，`/mcp` 里就不应该再看到 `openalex`。
 
-环境变量通过 `env_vars` 透传给 MCP：
 
-- `OPENALEX_API_KEY`
-- `OPENALEX_EMAIL`
-- `OPENALEX_BASE_URL`
-- `OPENALEX_TIMEOUT_MS`
-- `OPENALEX_MAX_RETRIES`
-
-`OPENALEX_API_KEY` 强烈建议设置；`openalex_rate_limit_status` 则必须要它。因为这里使用的是 `env_vars`，你需要在启动 Codex 的同一个 shell 里先 `export` 它们。
 
 ## Verify
 
