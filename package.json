@@ -1,0 +1,35 @@
+{
+  "name": "openalex-mcp-server",
+  "version": "0.1.0",
+  "description": "Codex-installable MCP server for the OpenAlex API",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "bin": {
+    "openalex-mcp-server": "./dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "print:codex-config": "npm run build && node dist/scripts/print-codex-config.js",
+    "smoke": "npm run build && node dist/scripts/smoke.js"
+  },
+  "keywords": [
+    "mcp",
+    "codex",
+    "openalex",
+    "scholar",
+    "bibliography"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.3"
+  }
+}
